@@ -7,7 +7,7 @@ var wordBank = [
 
 var wins = 0;
 var losses = 0;
-var ties = 0;
+var wrongGuesses = 0;
 
 var wordIndex = wordBank[Math.floor(Math.random() * wordBank.length)];
 
@@ -23,13 +23,12 @@ var wrongGuesses = 0;
 
 if (lettersLeft > 0 && wrongGuesses < 10) {
   
-  console.log(answerArray.join(" "));
+  document.write(answerArray.join(" "));
   
   document.onkeyup = function(event){
   	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-  		checkLetter(letterGuessed);
+  		letterGuessed(correctGuess);
 
-   
   if (letterGuessed === null) {
     
     
@@ -64,5 +63,6 @@ if (wrongGuesses === 10) {
 var html = "<p>wins:" + wins + "</p>" + "<p>wins:" + losses + "</p>";
 console.log(html)
 document.querySelector("#hangman").innerHTML = html;
+}
 }
 
